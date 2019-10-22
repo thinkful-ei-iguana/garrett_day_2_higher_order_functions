@@ -47,19 +47,15 @@ function hazardWarningCreator(typeOfWarning) {
   return function(location) {
     warningCounter++;
     console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
-    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
-  }
+    if (warningCounter === 1) {
+      console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time today!`);
+    } else {
+      console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
+    }
+  };
 }
 
 const rocksWarning = hazardWarningCreator(`Rocks on the Road`);
 const fireWarning = hazardWarningCreator(`Fire in the hole`);
 const rainWarning = hazardWarningCreator(`The Rain is insane`);
 
-rocksWarning('Main St and Pacific Ave');
-rocksWarning('Centinela Ave and Olympic Blvd');
-
-fireWarning('Main St and Pacific Ave');
-fireWarning('Centinela Ave and Olympic Blvd');
-
-rainWarning('Main St and Pacific Ave');
-rainWarning('Centinela Ave and Olympic Blvd');
