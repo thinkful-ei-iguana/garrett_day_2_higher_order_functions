@@ -59,3 +59,25 @@ const rocksWarning = hazardWarningCreator(`Rocks on the Road`);
 const fireWarning = hazardWarningCreator(`Fire in the hole`);
 const rainWarning = hazardWarningCreator(`The Rain is insane`);
 
+
+let turtleMovements = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+
+let filteredMovements = turtleMovements.filter(move => move[0] >= 0 && move[1] >= 0);
+
+let integers = turtleMovements.map(val => val[0] + val[1]);
+
+let steps = turtleMovements.forEach(val => {
+  console.log(`Movement #1: ${val[0]} steps`);
+  console.log(`Movement #2: ${val[1]} steps`);
+});
+
+let str = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
+let arr = str.split(' ');
+
+let sentence = arr.reduce((acc, val,) => {
+  if (val.length === 3) {
+    return acc += ' ';
+  } else {
+    return acc += val[val.length - 1].toUpperCase();
+  }
+}, ''); 
